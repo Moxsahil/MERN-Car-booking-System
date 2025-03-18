@@ -23,31 +23,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const corsOptions ={
-//     origin:"http://localhost:4000",
-//     credentials: true,
-// }
-// app.use(cors(corsOptions));
+const corsOptions ={
+    origin:"https://edum-two.vercel.app",
+    credentials: true,
+}
+app.use(cors(corsOptions));
 
 // app.use(cors());
-const allowedOrigins = [
-    "http://localhost:4000", // Hardcoded allowed origin
-    process.env.ALLOWED_ORIGIN, // Dynamic origin from .env
-  ];
+// const allowedOrigins = [
+//     "http://localhost:4000", // Hardcoded allowed origin
+//     process.env.ALLOWED_ORIGIN, // Dynamic origin from .env
+//   ];
   
-  // CORS configuration
-  const corsOptions = {
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // Allow cookies if needed
-  };
+//   // CORS configuration
+//   const corsOptions = {
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true, // Allow cookies if needed
+//   };
   
-  app.use(cors(corsOptions));
+//   app.use(cors(corsOptions));
 
 // app.get("/", (req, res) => {
 //     res.status(200).json({ message: "Welcome to the Backend API!" });
